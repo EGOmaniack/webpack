@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server",
-    "build": "webpack -d",
-    "prod": "webpack -p"
+    "build": "npm run clean && webpack -d",
+    "prod": "npm run clean && webpack -p",
+    "clean":"rimraf ./dist/*"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +24,7 @@
     "node-sass": "^4.5.2",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
+    "rimraf": "^2.6.1",
     "sass-loader": "^6.0.3",
     "style-loader": "^0.17.0",
     "webpack": "^2.4.1",
