@@ -1,7 +1,16 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const webpack = require('webpack');
 
+const isProd = process.env.NODE_ENV === 'production'; // true / false
+const cssDev = ['style-loader', 'css-loader', 'sass-loader'];
+const cssProd = ExtractTextPlugin.extract({
+                    fallbackLoader: 'style-loader',
+                    loader:['css-loader','sass-loader'],
+                    publicPath: '/dist'
+                });
+var cssConfig = isProd ? cssProd : cssDev;
 module.exports = {
     entry: {
         app: './src/app.js',
@@ -9,32 +18,59 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, "dist"),
-        filename: '[name].bundle.js'
+        filename: './js/[name].bundle.js'
     },
     module:{
         rules:[{
             test: /\.scss/,
-            use: ExtractTextPlugin.extract({
-                fallbackLoader: 'style-loader',
-                loader:['css-loader','sass-loader'],
-                publicPath: '/dist'
-            })
+            use: cssConfig
         },
         {        
             test: /\.js$/,
             exclude: /node_modules/,
             use: 'babel-loader'
+        },
+        {        
+            test: /\.(jpe?g|gif|png|svg)$/i,
+            use: [
+                'file-loader?name=[name].[ext]&outputPath=images/',
+                {
+                    loader: 'image-webpack-loader',
+                    query: {
+                    progressive: true,
+                    optimizationLevel: 7,
+                    interlaced: false,
+                    pngquant: {
+                        quality: '65-90',
+                        speed: 4
+                    },
+                    mozjpeg: {
+                        quality: 65
+                    },
+                    svgo:{
+                    plugins: [
+                        {
+                        removeViewBox: false
+                        },
+                        {
+                        removeEmptyAttrs: false
+                        }
+                    ]
+                    }
+                }
+            }]
         }]
     },
     devServer: {
         contentBase: path.resolve(__dirname, "dist"),
         compress: true,
+        hot: true,
         port: 9000,
         stats: "errors-only",
         open: true
     },
     plugins: [
-        new HtmlWebpackPlugin({
+    new HtmlWebpackPlugin({
         title: 'Custom template',
         minify: {
             collapseWhitespace: false
@@ -52,7 +88,10 @@ module.exports = {
     }),
     new ExtractTextPlugin({
         filename: "styles.css",
-        disable: false,
+        disable: !isProd,
         allChunks: true
-    })],
+    }),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NamedModulesPlugin(),
+    ],
 };
