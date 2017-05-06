@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import List from './List';
 
 const Cont = styled.div`
-    background:red;
+    background:#7A7A7A;
     width: fit-content;
     li{
         list-style-type: none;
@@ -20,10 +20,10 @@ const Cont = styled.div`
 `
 
 const phones = [
-    '333-333-33',
-    '4444-4444',
-    '5555-555-5',
-    '1111-111-1'
+    '+7 333-333-33',
+    '+7 4444-4444',
+    '+7 5555-555-5',
+    '+7 1111-111-1'
 ];
 const adresses = [
     'Москва',
@@ -34,11 +34,23 @@ const adresses = [
 export default class Content extends React.Component{
     constructor(props){
         super(props);
+        this.state = { choosed: phones }
+    }
+    setPhones(){
+        this.state = { choosed : phones };
+        this.render();
+    }
+    setAdresses(){
+        this.state = { choosed : adresses };
+        this.render();
     }
     render(){
-        return <Cont>
-        <button>phones</button><button>adresses</button>
-        <List items={phones}/>
-        </Cont> ;
+        console.log('setting to ...', this.state.choosed);
+        console.log(this.state);
+        return (<Cont>
+        <button onClick={this.setPhones.bind(this)}>phones</button>
+        <button onClick={this.setAdresses.bind(this)}>adresses</button>
+        <List items={this.state.choosed}/>
+        </Cont>);
     }
 }
