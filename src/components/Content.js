@@ -13,8 +13,8 @@ const Cont = styled.div`
         font-family: Georgia, 'Times New Roman', Times, serif;
     }
     ul {
-    margin-left: 0; /* Отступ слева в браузере IE и Opera */
-    padding-left: 0; /* Отступ слева в браузере Firefox, Safari, Chrome */
+    margin-left: 0;
+    padding-left: 0;
     >
    }
 `
@@ -37,20 +37,18 @@ export default class Content extends React.Component{
         this.state = { choosed: phones }
     }
     setPhones(){
-        this.state = { choosed : phones };
-        this.render();
+        this.setState({ choosed : phones });
     }
     setAdresses(){
-        this.state = { choosed : adresses };
-        this.render();
+        this.setState({ choosed : adresses });
     }
     render(){
-        console.log('setting to ...', this.state.choosed);
-        console.log(this.state);
-        return (<Cont>
-        <button onClick={this.setPhones.bind(this)}>phones</button>
-        <button onClick={this.setAdresses.bind(this)}>adresses</button>
-        <List items={this.state.choosed}/>
-        </Cont>);
+        return (
+        <Cont>
+            <button onClick={this.setPhones.bind(this)}>phones</button>
+            <button onClick={this.setAdresses.bind(this)}>adresses</button>
+            <List items={this.state.choosed}/>
+        </Cont>
+        );
     }
 }
