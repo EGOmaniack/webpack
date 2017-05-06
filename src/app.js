@@ -5,6 +5,6 @@ import ReactDOM from 'react-dom';
 import Link from './components/Link'
 
 ReactDOM.render(
-    <h1>Hellow <Link link="#" lable="world" /></h1>,
+    <h1>Наши <Link link="/contact.html" lable="контакты" /></h1>,
     document.getElementById('root')
 );
