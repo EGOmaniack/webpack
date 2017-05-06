@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server",
-    "build": "npm run clean && SET 'NODE_ENV=production' && webpack -d",
-    "prod": "npm run clean && SET 'NODE_ENV=production' && webpack -p",
+    "build": "npm run clean && webpack -d",
+    "prod": "npm run clean && set 'NODE_ENV=production' && webpack -p",
     "clean": "rimraf ./dist/*"
   },
   "keywords": [],
@@ -29,6 +29,7 @@
     "rimraf": "^2.6.1",
     "sass-loader": "^6.0.3",
     "style-loader": "^0.17.0",
+    "styled-components": "^1.4.6",
     "webpack": "^2.4.1",
     "webpack-dev-server": "^2.4.5"
   }
