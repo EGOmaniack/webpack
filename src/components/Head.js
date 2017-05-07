@@ -28,6 +28,7 @@ height: 80px;
             background:#8E197E;
         }
     }
+    ${(props)=> props.home ? '.home{ color: tomato; }' : '.contacts{ color: tomato; }'}
 `
 
 export default class Head extends React.Component{
@@ -38,14 +39,14 @@ export default class Head extends React.Component{
         window.location.href = "./contact.html";
     }
     ToMain(){
-        window.location.href = "./index.html";
+        window.location.href = "./";
     }
     render(){
         return (
-        <Wrap>
+        <Wrap {...this.props}>
             <div className="minWrap">
-                <div onClick={this.ToMain.bind(this)} className="head-elem">ДОМОЙ</div>
-                <div onClick={this.ToContacts.bind(this)} className="head-elem">КОНТАКТЫ</div>
+                <div onClick={this.ToMain.bind(this)} className="head-elem home">ДОМОЙ</div>
+                <div onClick={this.ToContacts.bind(this)} className="head-elem contacts">КОНТАКТЫ</div>
             </div>
         </Wrap>
         );

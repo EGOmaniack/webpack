@@ -10,8 +10,8 @@ import Head from './components/Head';
 
 ReactDOM.render(
     <div>
-        <Head/>
-        <h1>Главная <Link link="/index.html" lable="страница" /></h1>
+        <Head contacts/>
+        {/*<h1>Главная <Link link="/index.html" lable="страница" /></h1>*/}
         <Contacts/>
     </div>,
     document.getElementById('contact_root')
