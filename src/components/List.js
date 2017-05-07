@@ -13,8 +13,10 @@ export default class List extends React.Component{
             items.push(<li key={i}>{enteredItems[i]}</li>);
         }
 
-        return <list>
-        {items}
-        </list> ;
+        return (
+        <list>
+            {items}
+        </list> 
+        );
     }
 }

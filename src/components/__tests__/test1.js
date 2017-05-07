@@ -1,4 +1,4 @@
-import summ from './summ';
+import summ from '../summ';
 
 describe ('summ', function (){
     it ("вернет сумму чисел",function(){

@@ -9,7 +9,7 @@ const Cont = styled.div`
     li{
         list-style-type: none;
         color: white;
-        font-weight:bold;
+        font-weight: bold;
         font-family: Georgia, 'Times New Roman', Times, serif;
     }
     ul {
@@ -31,7 +31,7 @@ const adresses = [
     'Иннополис',
     'Казань'
 ];
-export default class Content extends React.Component{
+export default class Contacts extends React.Component{
     constructor(props){
         super(props);
         this.state = { choosed: phones }
