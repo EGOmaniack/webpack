@@ -1,4 +1,4 @@
-const css = require('./scss/head.scss');
+import * as css from './scss/head.scss';
 import * as React from 'react';
 import * as DOM from 'react-dom';
 import styled from 'styled-components';
@@ -30,7 +30,7 @@ height: 80px;
     }
     ${(props)=> props.home ? '.home{ color: tomato; }' : '.contacts{ color: tomato; }'}
 `
-
+ 
 export default class Head extends React.Component{
     constructor(props){
         super(props);
@@ -44,7 +44,7 @@ export default class Head extends React.Component{
     render(){
         return (
         <Wrap {...this.props}>
-            <div className="minWrap">
+            <div className='minWrap'>
                 <div onClick={this.ToMain.bind(this)} className="head-elem home">ДОМОЙ</div>
                 <div onClick={this.ToContacts.bind(this)} className="head-elem contacts">КОНТАКТЫ</div>
             </div>

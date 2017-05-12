@@ -6,8 +6,8 @@ const webpack = require('webpack');
 const isProd = process.env.NODE_ENV === 'production'; // true / false
 const cssDev = ['style-loader', 'css-loader', 'sass-loader'];
 const cssProd = ExtractTextPlugin.extract({
-                    fallbackLoader: 'style-loader',
-                    loader:['css-loader','sass-loader'],
+                    fallback: 'style-loader',
+                    use:['css-loader','sass-loader'],
                     publicPath: '/dist'
                 });
 var cssConfig = isProd ? cssProd : cssDev;
@@ -65,7 +65,7 @@ module.exports = {
         contentBase: path.resolve(__dirname, "dist"),
         compress: true,
         hot: true,
-        port: 9000,
+        port: 9001,
         stats: "errors-only",
         open: true
     },

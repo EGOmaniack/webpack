@@ -1,0 +1,25 @@
+body{
+    background: #B8F86A;
+    font-family: 'Open Sans', sans-serif;
+}
+h1{
+    font-size: 60px;
+}
+h4{
+    font-size: 25px;
+}
+h4:hover{
+    color: #5D2E68;
+    cursor: pointer;
+}
+div{
+    color: #AF34CB;
+}
+.wrapper{
+    width: fit-content;
+    margin: 0 auto;
+}
+.pic{
+    width: fit-content;
+    margin: 0 auto;
+}

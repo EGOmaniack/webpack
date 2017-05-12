@@ -6,7 +6,11 @@ import List from './List';
 const Cont = styled.div`
     background:#7A7A7A;
     width: fit-content;
+    min-width: 800px;
+    margin: 0 auto;
+    min-height: 400px;
     li{
+        padding-top: 10px;
         list-style-type: none;
         color: white;
         font-weight: bold;
@@ -15,8 +19,11 @@ const Cont = styled.div`
     ul {
     margin-left: 0;
     padding-left: 0;
-    >
    }
+`
+const Middle = styled.div`
+    width: fit-content;
+    margin: auto;
 `
 
 const phones = [
@@ -45,9 +52,11 @@ export default class Contacts extends React.Component{
     render(){
         return (
         <Cont>
-            <button onClick={this.setPhones.bind(this)}>phones</button>
-            <button onClick={this.setAdresses.bind(this)}>adresses</button>
-            <List items={this.state.choosed}/>
+            <Middle>
+                <button onClick={this.setPhones.bind(this)}>phones</button>
+                <button onClick={this.setAdresses.bind(this)}>adresses</button>
+                <List items={this.state.choosed}/>
+            </Middle>
         </Cont>
         );
     }
