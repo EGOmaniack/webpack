@@ -28,7 +28,9 @@ height: 80px;
             background:#8E197E;
         }
     }
-    ${(props)=> props.home ? '.home{ color: tomato; }' : '.contacts{ color: tomato; }'}
+    ${(props)=> props.home ? '.home{ color: tomato; }' : ''}
+    ${(props)=> props.contacts ? '.contacts{ color: tomato; }' : ''}
+
 `
  
 export default class Head extends React.Component{

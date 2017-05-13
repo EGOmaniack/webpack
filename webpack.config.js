@@ -14,7 +14,8 @@ var cssConfig = isProd ? cssProd : cssDev;
 module.exports = {
     entry: {
         app: './src/app.js',
-        contact: './src/contact.js'
+        contact: './src/contact.js',
+        lsn_01: './src/prezent/js/main.js'
     },
     output: {
         path: path.resolve(__dirname, "dist"),
@@ -26,7 +27,7 @@ module.exports = {
             use: cssConfig
         },
         {        
-            test: /\.js$/,
+            test: /\.jsx?$/,
             exclude: /node_modules/,
             use: 'babel-loader'
         },
@@ -85,6 +86,13 @@ module.exports = {
         chunks: ['contact'],
         filename: "contact.html",
         template: './src/contact.ejs',
+    }),
+    new HtmlWebpackPlugin({
+        title: 'lesson 01',
+        hash: true,
+        chunks: ['lsn_01'],
+        filename: "./prezent/index.html",
+        template: './src/prezent/index.html',
     }),
     new ExtractTextPlugin({
         filename: "styles.css",

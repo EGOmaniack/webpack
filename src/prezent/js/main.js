@@ -1,3 +1,5 @@
+const css = require('../css/main.scss');
+
 var webDev = document.querySelector('#web');
 var money = document.querySelector('#money');
 var me = document.querySelector('#me');

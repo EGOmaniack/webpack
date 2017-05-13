@@ -9,7 +9,7 @@ import Head from './components/Head';
 ReactDOM.render(
     <div>
         <Head home/>
-        {/*<h1>Наши <Link link="/contact.html" lable="контакты" /></h1>*/}
+        {<h1><Link link="./prezent/index.html" lable="Уроки" /></h1>}
     </div>,
     document.getElementById('root')
 );
