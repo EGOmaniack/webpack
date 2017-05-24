@@ -26,18 +26,24 @@
     "image-webpack-loader": "^3.3.0",
     "jest": "^19.0.2",
     "jest-cli": "^19.0.2",
-    "node-sass": "^4.5.2",
+    "node-sass": "^4.5.3",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "rimraf": "^2.6.1",
-    "sass-loader": "^6.0.3",
+    "sass-loader": "^6.0.5",
     "style-loader": "^0.17.0",
     "styled-components": "^1.4.6",
-    "webpack": "^2.4.1",
+    "webpack": "^2.5.1",
     "webpack-dev-server": "^2.4.5"
   },
   "jest": {
-    "moduleFileExtensions": ["ts", "tsx", "js"],
-    "testMatch": ["**/__tests__/*.(ts|tsx|js)"]
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "testMatch": [
+      "**/__tests__/*.(ts|tsx|js)"
+    ]
   }
 }

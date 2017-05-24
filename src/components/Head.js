@@ -1,4 +1,4 @@
-import * as css from './scss/head.scss';
+import * as css from './scss/head.sass';
 import * as React from 'react';
 import * as DOM from 'react-dom';
 import styled from 'styled-components';
